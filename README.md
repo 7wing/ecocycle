@@ -6,7 +6,7 @@ This project demonstrates proficiency in **React + TypeScript**, modular archite
 
 🚀 **Live Demo**
 
-[EcoCycle](https://ecocycle.vercel.app/)
+[EcoCycle](https://ecocycle-green.vercel.app/)
 
 🖼️ **Screenshots**
 
