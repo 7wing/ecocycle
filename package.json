@@ -1,7 +1,7 @@
 {
-  "name": "vite_react_shadcn_ts",
-  "private": true,
-  "version": "0.0.0",
+  "name": "ecocycle-hub",
+  "version": "1.0.0",
+  "description": "Smart waste management platform with scheduling, separation guides and modern UI.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,25 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "keywords": [
+    "EcoCycle",
+    "EcoHub",
+    "waste management",
+    "sustainability",
+    "bulk pickup",
+    "collection calendar",
+    "separation guide",
+    "React",
+    "TypeScript",
+    "TailwindCSS",
+    "Radix UI",
+    "Lucide Icons",
+    "vite",
+    "community app",
+    "environment"
+  ],
+  "author": "7wing",
+  "license": "MIT",
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
