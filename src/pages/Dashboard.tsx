@@ -3,14 +3,47 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+const collectionDays = [1, 4, 8, 11, 15, 18, 22, 25, 29];
+
+function getNextCollectionDate(collectionDays) {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth();
+
+  const nextDay = collectionDays.find(day => day >= today.getDate());
+
+  if (nextDay) {
+    return new Date(year, month, nextDay);
+  } else {
+    const nextMonth = month + 1;
+    return new Date(year, nextMonth, collectionDays[0]);
+  }
+}
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const nextCollectionDate = "Monday, October 7th";
-  const nextCollectionTime = "7:00 AM";
+  const [nextCollection, setNextCollection] = useState(null);
+
+  useEffect(() => {
+    const date = getNextCollectionDate(collectionDays);
+    setNextCollection(date);
+  }, []);
+
   const routeStatus = "On Time!";
   const ecoScore = 87;
   const ecoTip = "Tip: Rinse your containers to prevent pests!";
+
+  const nextCollectionDate = nextCollection
+    ? nextCollection.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+      })
+    : "Loading...";
+
+  const nextCollectionTime = "7:00 AM";
 
   return (
     <div className="container px-4 py-8 max-w-6xl mx-auto transition-theme">
@@ -20,7 +53,6 @@ export default function Dashboard() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
-        {/* Next Collection Card */}
         <Card className="md:col-span-2 lg:col-span-1">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
